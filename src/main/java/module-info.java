@@ -1,8 +1,8 @@
-module com.example.lab5 {
+module ua.lab5.javafxlab5 {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.example.lab5 to javafx.fxml;
-    exports com.example.lab5;
+    opens ua.lab5.javafxlab5 to javafx.fxml;
+    exports ua.lab5.javafxlab5;
 }
