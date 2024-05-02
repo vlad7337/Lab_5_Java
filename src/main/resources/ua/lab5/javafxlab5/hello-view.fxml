@@ -38,7 +38,7 @@
                     <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <children>
-                    <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" text="RadioButton" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" text="cos(ln|tg(ax)|)-ln²|bx-a|" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "20"/>
                       </GridPane.margin>
@@ -46,27 +46,27 @@
                         <ToggleGroup fx:id="SelectFunc" />
                       </toggleGroup>
                     </RadioButton>
-                    <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$SelectFunc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <RadioButton mnemonicParsing="false" text="xsh²|a³√cos(bx)|" toggleGroup="$SelectFunc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "50"/>
                       </GridPane.margin>
                     </RadioButton>
-                    <Label text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Label fx:id = "funcLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "80"/>
                       </GridPane.margin>
                     </Label>
-                    <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Button mnemonicParsing="false" text="Select" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "110"/>
                       </GridPane.margin>
                     </Button>
-                    <Label text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Label fx:id = "derivativeFunc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "145"/>
                       </GridPane.margin>
                     </Label>
-                    <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Button mnemonicParsing="false" text="Derivative" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "170"/>
                       </GridPane.margin>
@@ -77,17 +77,17 @@
                         <Insets left = "20" top = "10"/>
                       </GridPane.margin>
                     </Label>
-                    <TextField GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <TextField fx:id = "textFieldX" GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets left = "40" right="20" top = "10"/>
                       </GridPane.margin>
                     </TextField>
-                    <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.halignment="CENTER">
+                    <Button mnemonicParsing="false" text="Calculate" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.halignment="CENTER">
                       <GridPane.margin>
                         <Insets top = "50"/>
                       </GridPane.margin>
                     </Button>
-                    <Label text="Label" GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Label fx:id = "calculateLabel" GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "90"/>
                       </GridPane.margin>
