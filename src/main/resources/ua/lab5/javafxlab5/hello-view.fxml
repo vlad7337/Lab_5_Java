@@ -18,27 +18,29 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.lab5.javafxlab5.Lab5Controller">
+<?import javafx.scene.control.skin.TabPaneSkin.TabHeaderArea?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.lab5.javafxlab5.Lab5Controller">
   <children>
-    <TabPane prefHeight="480.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+    <TabPane fx:id = "tabPane" prefHeight="480.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
       <tabs>
         <Tab text="Function">
           <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane>
               <children>
-                <GridPane alignment="CENTER" layoutY="-1.0" prefHeight="450.0" prefWidth="640.0">
+                <GridPane alignment="TOP_CENTER" layoutY="-1.0" prefHeight="450.0" prefWidth="640.0">
                   <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="200.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="471.0" minWidth="10.0" prefWidth="240.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="471.0" minWidth="10.0" prefWidth="200.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" prefWidth="200.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" prefWidth="240.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" prefWidth="200.0" />
                   </columnConstraints>
                   <rowConstraints>
-                    <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                    <RowConstraints prefHeight="200.0" vgrow="SOMETIMES" />
+                    <RowConstraints prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints prefHeight="200.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <children>
-                    <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" text="cos(ln|tg(ax)|)-ln²|bx-a|" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <RadioButton fx:id = "rb1" alignment="TOP_CENTER" mnemonicParsing="false" text="cos(ln|tg(ax)|)-ln²|bx-a|" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" selected="true">
                       <GridPane.margin>
                         <Insets top = "20"/>
                       </GridPane.margin>
@@ -46,27 +48,27 @@
                         <ToggleGroup fx:id="SelectFunc" />
                       </toggleGroup>
                     </RadioButton>
-                    <RadioButton mnemonicParsing="false" text="xsh²|a³√cos(bx)|" toggleGroup="$SelectFunc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <RadioButton fx:id = "rb2" mnemonicParsing="false" text="xsh²|a³√cos(bx)|" toggleGroup="$SelectFunc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "50"/>
                       </GridPane.margin>
                     </RadioButton>
-                    <Label fx:id = "funcLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Label fx:id = "funcLabel" text = "cos(ln|tg(ax)|)-ln²|bx-a|" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "80"/>
                       </GridPane.margin>
                     </Label>
-                    <Button mnemonicParsing="false" text="Select" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Button mnemonicParsing="false" text="Select" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" onAction="#onSelectButtonClick">
                       <GridPane.margin>
                         <Insets top = "110"/>
                       </GridPane.margin>
                     </Button>
-                    <Label fx:id = "derivativeFunc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Label fx:id = "derivativeFuncLabel" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets top = "145"/>
                       </GridPane.margin>
                     </Label>
-                    <Button mnemonicParsing="false" text="Derivative" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <Button mnemonicParsing="false" text="Derivative" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" onAction="#onDerivativeButtonClick">
                       <GridPane.margin>
                         <Insets top = "170"/>
                       </GridPane.margin>
@@ -82,7 +84,7 @@
                         <Insets left = "40" right="20" top = "10"/>
                       </GridPane.margin>
                     </TextField>
-                    <Button mnemonicParsing="false" text="Calculate" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.halignment="CENTER">
+                    <Button mnemonicParsing="false" text="Calculate" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.halignment="CENTER" onAction="#onCalculateButtonClick">
                       <GridPane.margin>
                         <Insets top = "50"/>
                       </GridPane.margin>
@@ -98,7 +100,7 @@
                         <Insets left = "20"/>
                       </GridPane.margin>
                     </Label>
-                    <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <TextField fx:id = "textFieldBeginGraph" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets left = "60" right="20"/>
                       </GridPane.margin>
@@ -108,7 +110,7 @@
                         <Insets left = "25" top = "40"/>
                       </GridPane.margin>
                     </Label>
-                    <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                    <TextField fx:id = "textFieldEndGraph" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                       <GridPane.margin>
                         <Insets left = "60" right="20" top = "40"/>
                       </GridPane.margin>
@@ -139,4 +141,4 @@
       </tabs>
     </TabPane>
   </children>
-</Pane>
+</VBox>

@@ -19,7 +19,7 @@ public class Lab5Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Lab5Main.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 480);
         stage.setTitle("Lab_5");
-        stage.setResizable(false);
+        //stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
