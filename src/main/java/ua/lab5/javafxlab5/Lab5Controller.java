@@ -22,7 +22,7 @@ public class Lab5Controller {
     @FXML
     private TabPane tabPane;
     @FXML
-    private LineChart lineChart;
+    private LineChart<String, Double> lineChart;
 
     private Function func = MyFunctions.firstFunction();
 
@@ -65,22 +65,24 @@ public class Lab5Controller {
         else if (rb2.isSelected()){
             func = MyFunctions.secondFunction();
         }
-        List<Double> pointsRange = MyFunctions.getPointsInRange(Double.parseDouble(textFieldBeginGraph.getText()), Double.parseDouble(textFieldEndGraph.getText()), 100, func);
-//
-//        final XYChart.Series<String, Double> series = new XYChart.Series<>();
-//        series.setName(null);
-//        for (int i = 0; i < 100; i++) {
-//            final double x = pointsRange.get(i);
-//            final double y = pointsRange.get(i + 1);
-//            series.getData().add(new XYChart.Data<>(String.format("%.2f", x), y));
-//            lineChart.getData().add(series);
-//        }
-        XYChart.Series series = new XYChart.Series();
 
-        for (int i = 0; i < 200; i+=2) {
-            series.getData().add(new XYChart.Data(String.format("%s", pointsRange.get(i)), pointsRange.get(i+1)));
+        double a = Double.parseDouble(textFieldBeginGraph.getText());
+        double b = Double.parseDouble(textFieldEndGraph.getText());
+        int pointsN = 101;
+        List<Double> pointsRange = MyFunctions.getPointsInRange(a, b, pointsN, func);
+
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        for (int i = 0; i < pointsN; i++) {
+            Double x = pointsRange.get(2*i);
+            Double y = pointsRange.get(2*i+1);
+            if (y.isNaN()) continue;
+            series.getData().add(
+                    new XYChart.Data<>(String.format("%.3f", x), y)
+            );
         }
 
+        lineChart.getData().clear();
         lineChart.getData().add(series);
     }
 }
