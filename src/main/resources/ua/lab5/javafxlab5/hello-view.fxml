@@ -14,14 +14,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<?import javafx.scene.control.skin.TabPaneSkin.TabHeaderArea?>
 <?import javafx.scene.layout.VBox?>
-<?import com.sun.javafx.charts.Legend?>
-<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.lab5.javafxlab5.Lab5Controller">
+<?import javafx.scene.layout.BorderPane?>
+<VBox alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="ua.lab5.javafxlab5.Lab5Controller">
   <children>
     <TabPane fx:id = "tabPane" prefHeight="480.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
       <tabs>
@@ -36,9 +33,9 @@
                     <ColumnConstraints hgrow="SOMETIMES"/>
                   </columnConstraints>
                   <rowConstraints>
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="ALWAYS" />
+                    <RowConstraints vgrow="ALWAYS" />
+                    <RowConstraints vgrow="ALWAYS" />
                   </rowConstraints>
                   <children>
                     <RadioButton fx:id = "rb1" alignment="TOP_CENTER" mnemonicParsing="false" text="cos(ln|tg(ax)|)-ln²|bx-a|" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" selected="true">
@@ -116,7 +113,11 @@
                         <Insets left = "60" right="20" top = "40"/>
                       </GridPane.margin>
                     </TextField>
-                    <Button mnemonicParsing="false" text="Build" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.halignment="CENTER" onAction="#onBuildButtonClick"/>
+                    <Button mnemonicParsing="false" text="Build" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP" onAction="#onBuildButtonClick">
+                      <GridPane.margin>
+                        <Insets top = "80"/>
+                      </GridPane.margin>
+                    </Button>
                   </children>
                 </GridPane>
               </children>
@@ -125,18 +126,14 @@
         </Tab>
         <Tab text="Graphic">
           <content>
-            <AnchorPane>
-              <children>
-                <LineChart fx:id="lineChart" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                  <xAxis>
-                    <CategoryAxis side="BOTTOM" />
-                  </xAxis>
-                  <yAxis>
-                    <NumberAxis side="LEFT" />
-                  </yAxis>
-                </LineChart>
-              </children>
-            </AnchorPane>
+            <LineChart fx:id="lineChart" BorderPane.alignment="CENTER">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
           </content>
         </Tab>
       </tabs>

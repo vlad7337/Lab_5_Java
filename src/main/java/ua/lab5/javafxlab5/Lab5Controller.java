@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import ua.lab5.javafxlab5.functions.MyFunctions;
 import ua.lab5.javafxlab5.functions.core.Function;
 
@@ -59,6 +61,7 @@ public class Lab5Controller {
     @FXML
     protected void onBuildButtonClick(){
         tabPane.getSelectionModel().select(1);
+        lineChart.getData().clear();
         if (rb1.isSelected()){
             func = MyFunctions.firstFunction();
         }
@@ -82,7 +85,6 @@ public class Lab5Controller {
             );
         }
 
-        lineChart.getData().clear();
         lineChart.getData().add(series);
     }
 }
